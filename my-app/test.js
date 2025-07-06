@@ -8,24 +8,6 @@ console.log(subs(10, 5));
 
 // Impure Functions
 
-let total = 0;
-
-const addtoTOtal = (amount) => (total = total + amount);
-
-// console.log(addtoTOtal(5));
-
-const updatedate = () => {
-  new Date();
-};
-
-const randomNumber = () => {
-  return amount + Math.random();
-};
-
-console.log(randomNumber(2));
-console.log(randomNumber(2));
-console.log(randomNumber(2));
-
 import { produce } from "immer";
 
 const employees = {
@@ -62,3 +44,29 @@ console.log("Employees are not same different So ,", employees === employees2);
 
 // console.log(employees2);
 // console.log(employees);
+
+//Carried FUnction
+
+// const add2 = (a) => (b) => a + b;
+
+// console.log(add2(5)(10));
+
+// const totalprice = (ammount, discount) => ammount - ammount * discount;
+
+// console.log(totalprice(100, 0.3));
+
+const newtot = (ammount) => (discount) => ammount - ammount * discount;
+
+// console.log(newtot(120)(0.3));
+
+const llb = newtot(0.3);
+
+console.log(llb(200));
+
+function adds(a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c;
+    };
+  };
+}
