@@ -1,15 +1,30 @@
-// main.tsx or index.tsx
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import { Provider } from "react-redux";
-import { store } from "./redux/store";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import App from "./App";
 import "./index.css";
+import Tasks from "./pages/Tasks";
+import User from "./pages/User";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "tasks",
+        element: <Tasks />,
+      },
+      {
+        path: "users",
+        element: <User />,
+      },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
